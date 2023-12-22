@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "movieId": 0,
+    "time": 1702372332000,
+    "bookedSeats": []
+  },
+  {
+    "id": 1,
+    "movieId": 1,
+    "time": 1704056400000,
+    "bookedSeats": [
+      4
+    ]
+  },
+  {
+    "id": 2,
+    "movieId": 1,
+    "time": 1702643400000,
+    "bookedSeats": []
+  }
+]
