@@ -3,5 +3,20 @@
     "id": 3,
     "sessionId": 1,
     "seat": 4
+  },
+  {
+    "id": 4,
+    "sessionId": 0,
+    "seat": 4
+  },
+  {
+    "id": 5,
+    "sessionId": 0,
+    "seat": 3
+  },
+  {
+    "id": 6,
+    "sessionId": 0,
+    "seat": 5
   }
 ]

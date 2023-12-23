@@ -1,19 +1,19 @@
 package com.ilyanvk.di.modules
 
-import com.ilyanvk.data.dao.GenericDaoImpl
-import com.ilyanvk.data.local_storage.LocalStorageManager
-import com.ilyanvk.domain.model.Movie
-import com.ilyanvk.domain.model.Session
-import com.ilyanvk.domain.model.Ticket
-import com.ilyanvk.domain.model.User
-import com.ilyanvk.domain.repository.movies.MoviesRepository
-import com.ilyanvk.domain.repository.movies.MoviesRepositoryImpl
-import com.ilyanvk.domain.repository.sessions.SessionsRepository
-import com.ilyanvk.domain.repository.sessions.SessionsRepositoryImpl
-import com.ilyanvk.domain.repository.tickets.TicketsRepository
-import com.ilyanvk.domain.repository.tickets.TicketsRepositoryImpl
-import com.ilyanvk.domain.repository.users.UsersRepository
-import com.ilyanvk.domain.repository.users.UsersRepositoryImpl
+import com.ilyanvk.cinema_feature.data.dao.GenericDaoImpl
+import com.ilyanvk.cinema_feature.data.local_storage.LocalStorageManager
+import com.ilyanvk.cinema_feature.domain.model.Movie
+import com.ilyanvk.cinema_feature.domain.model.Session
+import com.ilyanvk.cinema_feature.domain.model.Ticket
+import com.ilyanvk.cinema_feature.domain.model.User
+import com.ilyanvk.cinema_feature.domain.repository.movies.MoviesRepository
+import com.ilyanvk.cinema_feature.domain.repository.movies.MoviesRepositoryImpl
+import com.ilyanvk.cinema_feature.domain.repository.sessions.SessionsRepository
+import com.ilyanvk.cinema_feature.domain.repository.sessions.SessionsRepositoryImpl
+import com.ilyanvk.cinema_feature.domain.repository.tickets.TicketsRepository
+import com.ilyanvk.cinema_feature.domain.repository.tickets.TicketsRepositoryImpl
+import com.ilyanvk.cinema_feature.domain.repository.users.UsersRepository
+import com.ilyanvk.cinema_feature.domain.repository.users.UsersRepositoryImpl
 import dagger.Module
 import dagger.Provides
 

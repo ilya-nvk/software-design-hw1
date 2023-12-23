@@ -1,32 +1,23 @@
 package com.ilyanvk
 
+import com.ilyanvk.cinema_feature.presentation.console_ui.ConsoleUI
 import com.ilyanvk.di.AppComponent
 import com.ilyanvk.di.DaggerAppComponent
-import com.ilyanvk.domain.cinema.Cinema
-import com.ilyanvk.domain.user.UserService
-import com.ilyanvk.presentation.ConsoleUIImpl
 import javax.inject.Inject
 
-
 class Main {
-    @Inject
-    lateinit var cinema: Cinema
 
     @Inject
-    lateinit var userService: UserService
+    lateinit var consoleUI: ConsoleUI  // Injected by Dagger
+
 
     fun start() {
-        val component: AppComponent = DaggerAppComponent.create()
-        component.inject(this)
-
-        val consoleUI = ConsoleUIImpl(cinema, userService)
+        val component: AppComponent = DaggerAppComponent.create()  // Create Dagger component
+        component.inject(this)  // Inject dependencies into this Main instance
         consoleUI.start()
     }
+}
 
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Main().start()
-        }
-    }
+fun main() {
+    Main().start()
 }
