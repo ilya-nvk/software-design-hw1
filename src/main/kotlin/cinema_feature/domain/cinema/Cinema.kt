@@ -48,6 +48,22 @@ interface Cinema {
     fun addSession(movieId: Int, time: Long)
 
     /**
+     * Edits a movie in the cinema.
+     * @param movieId ID of the movie to be edited.
+     * @param title New title of the movie.
+     * @param durationMin New duration of the movie in minutes.
+     */
+    fun editMovie(movieId: Int, title: String, durationMin: Int)
+
+    /**
+     * Edits a session in the cinema.
+     * @param sessionId ID of the session to be edited.
+     * @param movieId New ID of the movie.
+     * @param time New time of the session.
+     */
+    fun editSession(sessionId: Int, movieId: Int, time: Long)
+
+    /**
      * Deletes a movie from the cinema.
      * @param movieId ID of the movie to be deleted.
      */

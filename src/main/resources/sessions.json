@@ -1,1 +1,32 @@
-[{"id":1,"movieId":1,"time":1704056400000,"bookedSeats":[4]},{"id":2,"movieId":1,"time":1702643400000,"bookedSeats":[]},{"id":3,"movieId":0,"time":1712198700000,"bookedSeats":[]},{"id":0,"movieId":0,"time":1702372332000,"bookedSeats":[4,3,5]}]
+[
+  {
+    "id": 2,
+    "movieId": 1,
+    "time": 1702643400000,
+    "bookedSeats": []
+  },
+  {
+    "id": 3,
+    "movieId": 0,
+    "time": 1712198700000,
+    "bookedSeats": []
+  },
+  {
+    "id": 0,
+    "movieId": 0,
+    "time": 1702372332000,
+    "bookedSeats": [
+      4,
+      3,
+      5
+    ]
+  },
+  {
+    "id": 1,
+    "movieId": 2,
+    "time": 1703329440000,
+    "bookedSeats": [
+      4
+    ]
+  }
+]

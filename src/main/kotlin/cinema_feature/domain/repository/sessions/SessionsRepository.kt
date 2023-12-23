@@ -14,6 +14,13 @@ interface SessionsRepository {
     fun getSessions(): List<Session>
 
     /**
+     * Retrieves a session by ID.
+     * @param sessionId ID of the session.
+     * @return Session with the specified ID.
+     */
+    fun getSession(sessionId: Int): Session
+
+    /**
      * Adds a session.
      * @param session The session to be added.
      */
@@ -24,6 +31,14 @@ interface SessionsRepository {
      * @param sessionId ID of the session to be deleted.
      */
     fun deleteSession(sessionId: Int)
+
+    /**
+     * Edits a session.
+     * @param sessionId ID of the session to be edited.
+     * @param movieId ID of the movie to be shown.
+     * @param time Time of the session.
+     */
+    fun editSession(sessionId: Int, movieId: Int, time: Long)
 
     /**
      * Retrieves all booked seats for a session.

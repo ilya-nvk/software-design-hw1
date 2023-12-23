@@ -24,18 +24,20 @@ class ConsoleUIImpl(
 
     private fun printMenu() {
         println("\n----- Cinema Management System -----")
-        println("1. Display Movies")
-        println("2. Display Sessions for a Movie")
-        println("3. Buy Ticket")
-        println("4. Return Ticket")
+        println("1. Display movies")
+        println("2. Display sessions for a movie")
+        println("3. Sell ticket")
+        println("4. Return ticket")
         println("5. Add movie")
         println("6. Add session")
         println("7. Delete movie")
         println("8. Delete session")
-        println("9. Change password")
-        println("10. Delete account")
-        println("11. Log out")
-        println("12. Exit")
+        println("9. Edit movie")
+        println("10. Edit session")
+        println("11. Change password")
+        println("12. Delete account")
+        println("13. Log out")
+        println("14. Exit")
         print("Enter your choice: ")
     }
 
@@ -52,16 +54,18 @@ class ConsoleUIImpl(
         when (choice) {
             1 -> displayMovies()
             2 -> displaySessions()
-            3 -> buyTicket()
+            3 -> sellTicket()
             4 -> returnTicket()
             5 -> addMovie()
             6 -> addSession()
             7 -> deleteMovie()
             8 -> deleteSession()
-            9 -> changePassword()
-            10 -> deleteAccount()
-            11 -> logOut()
-            12 -> exit()
+            9 -> editMovie()
+            10 -> editSession()
+            11 -> changePassword()
+            12 -> deleteAccount()
+            13 -> logOut()
+            14 -> exit()
             else -> println("Invalid choice.")
         }
     }
@@ -89,7 +93,7 @@ class ConsoleUIImpl(
         }
     }
 
-    private fun buyTicket() {
+    private fun sellTicket() {
         val session = inputSession() ?: return
         val seat = inputReader.readInt("Enter the seat number to sell a ticket: ") ?: return
         try {
@@ -147,6 +151,35 @@ class ConsoleUIImpl(
         val session = inputSession() ?: return
         cinema.deleteSession(session.id)
         println("Session deleted successfully.")
+    }
+
+    private fun editMovie() {
+        displayMovies()
+        val movieId = inputReader.readInt("Enter the ID of the movie: ") ?: return
+        val title = inputReader.readString("Input new title of the movie: ")
+        val duration = inputReader.readInt("Input new duration of the movie in minutes: ") ?: return
+        try {
+            cinema.editMovie(movieId, title, duration)
+            println("Movie edited successfully.")
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+        }
+    }
+
+    private fun editSession() {
+        val session = inputSession() ?: return
+        val movieId = inputReader.readInt("Enter new movie ID: ") ?: return
+        if (movieId !in cinema.movies.map { it.id }) {
+            println("Movie not found.")
+            return
+        }
+        val date = inputReader.readDate("Enter new session time (yyyy-MM-dd HH:mm): ") ?: return
+        try {
+            cinema.editSession(session.id, movieId, date.time)
+            println("Session edited successfully.")
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+        }
     }
 
     private fun logIn() {

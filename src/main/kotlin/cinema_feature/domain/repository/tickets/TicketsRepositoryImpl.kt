@@ -10,6 +10,11 @@ class TicketsRepositoryImpl(
         return dao.getAll()
     }
 
+    override fun getTicket(ticketId: Int): Ticket {
+        return dao.getAll().find { it.id == ticketId }
+            ?: throw IllegalArgumentException("Session not found.")
+    }
+
     override fun addTicket(ticket: Ticket) {
         dao.add(ticket)
     }

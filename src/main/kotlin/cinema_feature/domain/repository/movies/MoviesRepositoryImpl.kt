@@ -10,6 +10,11 @@ class MoviesRepositoryImpl(
         return dao.getAll()
     }
 
+    override fun getMovie(movieId: Int): Movie {
+        return dao.getAll().find { it.id == movieId }
+            ?: throw IllegalArgumentException("Movie not found in the cinema.")
+    }
+
     override fun addMovie(movie: Movie) {
         dao.add(movie)
     }
@@ -18,5 +23,11 @@ class MoviesRepositoryImpl(
         val movie =
             dao.getAll().find { it.id == movieId } ?: throw IllegalArgumentException("Movie not found in the cinema.")
         dao.delete(movie)
+    }
+
+    override fun editMovie(movieId: Int, title: String, durationMin: Int) {
+        val movie = getMovie(movieId)
+        dao.delete(movie)
+        dao.add(movie.copy(title = title, durationMin = durationMin))
     }
 }

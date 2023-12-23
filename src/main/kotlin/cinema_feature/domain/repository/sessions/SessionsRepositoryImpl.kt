@@ -11,6 +11,10 @@ class SessionsRepositoryImpl(
         return dao.getAll()
     }
 
+    override fun getSession(sessionId: Int): Session {
+        return dao.getAll().find { it.id == sessionId } ?: throw IllegalArgumentException("Session not found.")
+    }
+
     override fun addSession(session: Session) {
         dao.add(session)
     }
@@ -18,6 +22,12 @@ class SessionsRepositoryImpl(
     override fun deleteSession(sessionId: Int) {
         val session = getSessionById(sessionId)
         dao.delete(session)
+    }
+
+    override fun editSession(sessionId: Int, movieId: Int, time: Long) {
+        val session = getSessionById(sessionId)
+        dao.delete(session)
+        dao.add(session.copy(movieId = movieId, time = time))
     }
 
     override fun getBookedSeats(sessionId: Int): List<Int> {

@@ -14,6 +14,13 @@ interface TicketsRepository {
     fun getTickets(): List<Ticket>
 
     /**
+     * Retrieves a ticket by ID.
+     * @param ticketId ID of the ticket.
+     * @return Ticket with the specified ID.
+     */
+    fun getTicket(ticketId: Int): Ticket
+
+    /**
      * Adds a ticket.
      * @param ticket The ticket to be added.
      */

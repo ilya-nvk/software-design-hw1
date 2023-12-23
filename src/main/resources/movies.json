@@ -5,13 +5,13 @@
     "durationMin": 180
   },
   {
+    "id": 2,
+    "title": "La La Land",
+    "durationMin": 95
+  },
+  {
     "id": 1,
     "title": "Barbie",
     "durationMin": 120
-  },
-  {
-    "id": 2,
-    "title": "Lalala",
-    "durationMin": 90
   }
 ]

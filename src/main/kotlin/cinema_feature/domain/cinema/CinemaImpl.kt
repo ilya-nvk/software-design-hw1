@@ -33,7 +33,8 @@ class CinemaImpl(
     override fun returnTicket(ticketId: Int) {
         val ticket = ticketsRepository.getTickets().find { it.id == ticketId }
             ?: throw IllegalArgumentException("Ticket not found in the sold tickets.")
-
+        val session = sessionsRepository.getSession(ticket.sessionId)
+        require(session.time > System.currentTimeMillis()) { "Session has already started. Ticket cannot be returned." }
         ticketsRepository.deleteTicket(ticketId)
         cancelBooking(ticket.sessionId, ticket.seat)
     }
@@ -45,8 +46,18 @@ class CinemaImpl(
 
     override fun addSession(movieId: Int, time: Long) {
         require(moviesRepository.getMovies().any { it.id == movieId }) { "Movie not found in the cinema." }
+        require(time > System.currentTimeMillis()) { "Session time must be in the future." }
         val id = (sessionsRepository.getSessions().maxOfOrNull { it.id } ?: -1) + 1
         sessionsRepository.addSession(Session(id, movieId, time))
+    }
+
+    override fun editMovie(movieId: Int, title: String, durationMin: Int) {
+        moviesRepository.editMovie(movieId, title, durationMin)
+    }
+
+    override fun editSession(sessionId: Int, movieId: Int, time: Long) {
+        require(time > System.currentTimeMillis()) { "Session time must be in the future." }
+        sessionsRepository.editSession(sessionId, movieId, time)
     }
 
     override fun deleteMovie(movieId: Int) {
