@@ -17,6 +17,8 @@
 
 ### Диаграмма классов
 
+![class_diagram.png](src%2Fmain%2Fdiagrams%2Fclass_diagram.png)
+
 ### Диаграмма прецедентов
 
 ## Пароли

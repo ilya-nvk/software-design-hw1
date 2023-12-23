@@ -76,6 +76,7 @@ interface Cinema {
     companion object {
         /**
          * Capacity of the cinema.
+         * This constant is used in a few other classes, so it is defined here as a public and static property.
          */
         const val CAPACITY = 10
     }
