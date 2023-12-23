@@ -15,11 +15,15 @@
 
 ## Диаграммы
 
+Они также лежат в папке `diagrams`.
+
 ### Диаграмма классов
 
-![class_diagram.png](src%2Fmain%2Fdiagrams%2Fclass_diagram.png)
+![class_diagram.png](diagrams%2Fclass_diagram.png)
 
 ### Диаграмма прецедентов
+
+![use_case_diagram.png](diagrams%2Fuse_case_diagram.png)
 
 ## Пароли
 
